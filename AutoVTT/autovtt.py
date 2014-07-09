@@ -29,6 +29,8 @@ with codecs.open(args.OUTFILE, 'a', encoding='utf-8') as newFile:
             elif eventsSection:
                 if line.startswith(u"Format: ") and not eventFormatDefined:
                     formatLine = [word.strip() for word in line.replace(u"Format: ","").split(u",")]
-                    
+                else:
+                    tempLine = line.partition(u":")[2].strip().split(u",", len(formatLine)-1)
+                    print tempLine
                     
                     
